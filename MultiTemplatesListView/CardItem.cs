@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Store;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
@@ -19,5 +20,15 @@ namespace MultiTemplatesListView
         {
             this.DefaultStyleKey = typeof(CardItem);
         }
+
+        public static readonly DependencyProperty CoverProperty = DependencyProperty.Register(
+            "Cover", typeof(string), typeof(CardItem), new PropertyMetadata(default(string)));
+
+        public string Cover
+        {
+            get { return (string) GetValue(CoverProperty); }
+            set { SetValue(CoverProperty, value); }
+        }
+
     }
 }

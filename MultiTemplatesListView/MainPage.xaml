@@ -8,7 +8,11 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <local:TemplateSelector1 x:Key="TemplateSelector1"></local:TemplateSelector1>
+    </Page.Resources>
+
     <Grid>
-        <local:MultiTemplatesView ></local:MultiTemplatesView>
+        <local:MultiTemplatesView Source="" DataTemplateSelector="{StaticResource TemplateSelector1}"></local:MultiTemplatesView>
     </Grid>
 </Page>

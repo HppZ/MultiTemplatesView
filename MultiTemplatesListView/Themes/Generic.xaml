@@ -11,6 +11,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
+                        <Image Source="{TemplateBinding Cover}"></Image>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
