@@ -22,8 +22,6 @@ namespace MultiTemplatesListView
         public MultiTemplatesView()
         {
             this.InitializeComponent();
-            ListView a; 
-            a.ItemsSource
         }
 
         public static readonly DependencyProperty SourceProperty = DependencyProperty.Register(

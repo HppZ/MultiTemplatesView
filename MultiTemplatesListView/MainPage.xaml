@@ -13,6 +13,6 @@
     </Page.Resources>
 
     <Grid>
-        <local:MultiTemplatesView Source="" DataTemplateSelector="{StaticResource TemplateSelector1}"></local:MultiTemplatesView>
+        <!--<local:MultiTemplatesView Source="" DataTemplateSelector="{StaticResource TemplateSelector1}"></local:MultiTemplatesView>-->
     </Grid>
 </Page>

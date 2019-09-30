@@ -7,7 +7,7 @@
         <ListView >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <local:CardItem Width=""></local:CardItem>
+                    <local:CardItem Width="1"></local:CardItem>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
