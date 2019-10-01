@@ -14,16 +14,12 @@
                         Template2="{StaticResource CardItemDataTemplate2}"
                         ></local:ItemSelector>
 
-    <DataTemplate x:Key="CardItemDataTemplate1">
-        <DataTemplate x:DataType="local:CardItemModel">
-            <local:CardItem Cover="{x:Bind Cover}" Title="{x:Bind Title}" Foreground="Green"></local:CardItem>
-        </DataTemplate>
+    <DataTemplate x:Key="CardItemDataTemplate1" x:DataType="local:CardItemModel">
+        <local:CardItem Cover="{x:Bind Cover}" Title="{x:Bind Title}" Foreground="Green"></local:CardItem>
     </DataTemplate>
 
-    <DataTemplate x:Key="CardItemDataTemplate2">
-        <DataTemplate x:DataType="local:CardItemModel">
-            <local:CardItem Cover="{x:Bind Cover}" Title="{x:Bind Title}" Foreground="Red"></local:CardItem>
-        </DataTemplate>
+    <DataTemplate x:Key="CardItemDataTemplate2" x:DataType="local:CardItemModel">
+        <local:CardItem Cover="{x:Bind Cover}" Title="{x:Bind Title}" Foreground="Red"></local:CardItem>
     </DataTemplate>
 
     <DataTemplate x:Key="DataTemplate1" x:DataType="local:CardModel1">
@@ -49,13 +45,12 @@
     <DataTemplate x:Key="DataTemplate2" x:DataType="local:CardModel2">
         <ListView ItemsSource="{x:Bind Items}" ItemTemplateSelector="{StaticResource ItemSelector1}">
             <ListView.ItemsPanel>
-              <ItemsPanelTemplate>
-                  <ItemsWrapGrid ItemHeight="{StaticResource ItemHeight2}" 
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid ItemHeight="{StaticResource ItemHeight2}" 
                                  ItemWidth="{StaticResource ItemWidth2}" 
-                                 MaximumRowsOrColumns="1"
                                  Orientation="Horizontal">
-                  </ItemsWrapGrid>
-              </ItemsPanelTemplate>
+                    </ItemsWrapGrid>
+                </ItemsPanelTemplate>
             </ListView.ItemsPanel>
         </ListView>
     </DataTemplate>
