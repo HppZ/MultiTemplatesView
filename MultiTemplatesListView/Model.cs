@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace MultiTemplatesListView
 
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
+            Debug.Assert(item != null);
             switch (item)
             {
                 case CardItemModel model:
