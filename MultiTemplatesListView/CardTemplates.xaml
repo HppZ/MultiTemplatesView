@@ -30,7 +30,9 @@
         <ListView ItemsSource="{x:Bind Items}" ItemTemplateSelector="{StaticResource ItemSelector1}">
             <ListView.Header>
                 <GridViewItem Height="{StaticResource ItemHeight1}" 
-                              Width="{StaticResource ItemWidth1}" DataContext="{x:Bind Header}" ContentTemplateSelector="{StaticResource ItemSelector1}"></GridViewItem>
+                              Width="{StaticResource ItemWidth1}" 
+                              DataContext="{x:Bind Header}"
+                              ContentTemplateSelector="{StaticResource ItemSelector1}"></GridViewItem>
             </ListView.Header>
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
