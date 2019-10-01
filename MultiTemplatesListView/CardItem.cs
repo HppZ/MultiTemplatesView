@@ -30,11 +30,22 @@ namespace MultiTemplatesListView
             set { SetValue(CoverProperty, value); }
         }
 
+
+        public static readonly DependencyProperty TitleProperty = DependencyProperty.Register(
+            "Title", typeof(string), typeof(CardItem), new PropertyMetadata(default(string)));
+
+        public string Title
+        {
+            get { return (string) GetValue(TitleProperty); }
+            set { SetValue(TitleProperty, value); }
+        }
+
     }
 
     public class CardItemModel
     {
         public string Cover { get; set; }
+        public string Title { get; set; }
 
     }
 }

@@ -9,38 +9,48 @@
         <ResourceDictionary Source="TemplatesStyle.xaml"></ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 
-
     <DataTemplate x:Key="CardItemDataTemplate1">
-
+        <DataTemplate x:DataType="local:CardItemModel">
+            <local:CardItem Cover="{x:Bind Cover}" Title="{x:Bind Title}" Foreground="Green"></local:CardItem>
+        </DataTemplate>
     </DataTemplate>
 
     <DataTemplate x:Key="CardItemDataTemplate2">
-
+        <DataTemplate x:DataType="local:CardItemModel">
+            <local:CardItem Cover="{x:Bind Cover}" Title="{x:Bind Title}" Foreground="Red"></local:CardItem>
+        </DataTemplate>
     </DataTemplate>
-
 
     <DataTemplate x:Key="DataTemplate1" x:DataType="local:CardModel1">
         <ListView ItemsSource="{x:Bind Items}">
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="local:CardItemModel">
-                    <local:CardItem Cover="{x:Bind Cover}" Width="{StaticResource ItemWidth1}" Height="{StaticResource ItemHeight1}"></local:CardItem>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+            <ListView.Header>
+                <GridViewItem Height="{StaticResource ItemHeight1}" 
+                              Width="{StaticResource ItemWidth1}" ></GridViewItem>
+            </ListView.Header>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid ItemHeight="{StaticResource ItemHeight1}" 
+                                   ItemWidth="{StaticResource ItemWidth1}" 
+                                   MaximumRowsOrColumns="2"
+                                   Orientation="Vertical">
+                    </ItemsWrapGrid>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
         </ListView>
     </DataTemplate>
 
     <DataTemplate x:Key="DataTemplate2" x:DataType="local:CardModel2">
         <ListView ItemsSource="{x:Bind Items}">
-            <!--<ListView.Header>
-                <local:CardItem Cover="{x:Bind Cover}" Width="{StaticResource ItemWidth1}" Height="{StaticResource ItemHeight1}"></local:CardItem>
-            </ListView.Header>-->
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="local:CardItemModel">
-                    <local:CardItem Cover="{x:Bind Cover}" Width="{StaticResource ItemWidth1}" Height="{StaticResource ItemHeight1}"></local:CardItem>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+              <ItemsPanelTemplate>
+                  <ItemsWrapGrid ItemHeight="{StaticResource ItemHeight2}" 
+                                 ItemWidth="{StaticResource ItemWidth2}" 
+                                 MaximumRowsOrColumns="1"
+                                 Orientation="Horizontal">
+                  </ItemsWrapGrid>
+              </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
         </ListView>
     </DataTemplate>
-
 
 </ResourceDictionary>

@@ -7,12 +7,17 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:CardItem">
-                    <Border
+                    <Grid
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
                         <Image Source="{TemplateBinding Cover}"></Image>
-                    </Border>
+                        <TextBlock Grid.Row="1" Text="{TemplateBinding Title}" Foreground="{TemplateBinding Foreground}"></TextBlock>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

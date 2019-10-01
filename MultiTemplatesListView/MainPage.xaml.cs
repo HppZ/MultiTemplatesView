@@ -54,6 +54,7 @@ namespace MultiTemplatesListView
     public class TemplateSelector1 : DataTemplateSelector
     {
         public DataTemplate Template1 { get; set; }
+        public DataTemplate Template2 { get; set; }
 
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
