@@ -9,6 +9,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
+using Image = Windows.UI.Xaml.Controls.Image;
 
 // The Templated Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234235
 
@@ -22,7 +24,20 @@ namespace MultiTemplatesListView
         }
 
         public static readonly DependencyProperty CoverProperty = DependencyProperty.Register(
-            "Cover", typeof(string), typeof(CardItem), new PropertyMetadata(default(string)));
+            "Cover", typeof(string), typeof(CardItem), new PropertyMetadata(default(string), onChanged));
+
+        private static void onChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            (d as CardItem).SetImg();
+        }
+
+        private void SetImg()
+        {
+            if (_img != null && Cover != null)
+            {
+                _img.Source = new BitmapImage(new Uri(Cover));
+            }
+        }
 
         public string Cover
         {
@@ -35,8 +50,17 @@ namespace MultiTemplatesListView
 
         public string Title
         {
-            get { return (string) GetValue(TitleProperty); }
+            get { return (string)GetValue(TitleProperty); }
             set { SetValue(TitleProperty, value); }
+        }
+
+        private Image _img;
+        protected override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+
+            _img = GetTemplateChild("ImagePart") as Image;
+            SetImg();
         }
     }
 

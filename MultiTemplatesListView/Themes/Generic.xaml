@@ -15,7 +15,7 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <Image Source="{TemplateBinding Cover}"></Image>
+                        <Image x:Name="ImagePart" Stretch="Fill"></Image>
                         <TextBlock Grid.Row="1" Text="{TemplateBinding Title}" Foreground="{TemplateBinding Foreground}"></TextBlock>
                     </Grid>
                 </ControlTemplate>
