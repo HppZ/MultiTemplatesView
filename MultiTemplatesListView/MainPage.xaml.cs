@@ -36,9 +36,9 @@ namespace MultiTemplatesListView
             Loaded += MainPage_Loaded;
         }
 
-        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        private async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-
+            await LoadData();
         }
 
         private async Task LoadData()
@@ -47,6 +47,42 @@ namespace MultiTemplatesListView
             var json = await FileIO.ReadTextAsync(file);
             var response = JsonConvert.DeserializeObject<Response>(json);
 
+            foreach (var responseItem in response.items)
+            {
+                object card = null;
+
+                var items = responseItem.video[0].data.Select(toCardItemModel).ToList();
+
+                if (responseItem.temp.id % 2 == 0)
+                {
+                    card = new CardModel1()
+                    {
+                        Title = responseItem.title,
+                        Header = items.First(),
+                        Items = new List<CardItemModel>(items.Skip(1))
+                    };
+                }
+                else
+                {
+                    card = new CardModel2()
+                    {
+                        Title = responseItem.title,
+                        Items = items
+                    };
+                }
+
+                //Source.Add(card);
+            }
+        }
+
+        CardItemModel toCardItemModel(Datum datum)
+        {
+            return new CardItemModel()
+            {
+                Title = datum.title,
+                Cover = datum.image_url,
+                Type = datum.channel_id % 2 == 0 ? CardType.Movie : CardType.Album
+            };
         }
     }
 
@@ -58,6 +94,16 @@ namespace MultiTemplatesListView
 
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
+            switch (item)
+            {
+                case CardModel1 model:
+                    return Template1;
+                    break;
+
+                case CardModel2 model:
+                    return Template2;
+                    break;
+            }
             return Template1;
         }
     }

@@ -30,7 +30,6 @@ namespace MultiTemplatesListView
             set { SetValue(CoverProperty, value); }
         }
 
-
         public static readonly DependencyProperty TitleProperty = DependencyProperty.Register(
             "Title", typeof(string), typeof(CardItem), new PropertyMetadata(default(string)));
 
@@ -39,11 +38,17 @@ namespace MultiTemplatesListView
             get { return (string) GetValue(TitleProperty); }
             set { SetValue(TitleProperty, value); }
         }
+    }
 
+    public enum CardType
+    {
+        Movie,
+        Album,
     }
 
     public class CardItemModel
     {
+        public CardType Type { get; set; }
         public string Cover { get; set; }
         public string Title { get; set; }
 

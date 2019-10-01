@@ -186,7 +186,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\topic.json" />
+    <Content Include="Assets\topic.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

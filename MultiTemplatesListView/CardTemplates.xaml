@@ -6,8 +6,13 @@
 
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="TemplatesStyle.xaml"></ResourceDictionary>
+        <local:TemplatesStyle></local:TemplatesStyle>
     </ResourceDictionary.MergedDictionaries>
+
+    <local:ItemSelector x:Key="ItemSelector1" 
+                        Template1="{StaticResource CardItemDataTemplate1}"
+                        Template2="{StaticResource CardItemDataTemplate2}"
+                        ></local:ItemSelector>
 
     <DataTemplate x:Key="CardItemDataTemplate1">
         <DataTemplate x:DataType="local:CardItemModel">
@@ -22,10 +27,10 @@
     </DataTemplate>
 
     <DataTemplate x:Key="DataTemplate1" x:DataType="local:CardModel1">
-        <ListView ItemsSource="{x:Bind Items}">
+        <ListView ItemsSource="{x:Bind Items}" ItemTemplateSelector="{StaticResource ItemSelector1}">
             <ListView.Header>
                 <GridViewItem Height="{StaticResource ItemHeight1}" 
-                              Width="{StaticResource ItemWidth1}" ></GridViewItem>
+                              Width="{StaticResource ItemWidth1}" DataContext="{x:Bind Header}" ContentTemplateSelector="{StaticResource ItemSelector1}"></GridViewItem>
             </ListView.Header>
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -40,7 +45,7 @@
     </DataTemplate>
 
     <DataTemplate x:Key="DataTemplate2" x:DataType="local:CardModel2">
-        <ListView ItemsSource="{x:Bind Items}">
+        <ListView ItemsSource="{x:Bind Items}" ItemTemplateSelector="{StaticResource ItemSelector1}">
             <ListView.ItemsPanel>
               <ItemsPanelTemplate>
                   <ItemsWrapGrid ItemHeight="{StaticResource ItemHeight2}" 
