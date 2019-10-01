@@ -71,7 +71,7 @@ namespace MultiTemplatesListView
                     };
                 }
 
-                //Source.Add(card);
+                Source.Add(card);
             }
         }
 
