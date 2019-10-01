@@ -16,7 +16,10 @@ namespace MultiTemplatesListView
 
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
-            Debug.Assert(item != null);
+            if (item == null)
+            {
+
+            }
             switch (item)
             {
                 case CardItemModel model:

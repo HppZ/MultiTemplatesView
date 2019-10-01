@@ -72,7 +72,10 @@ namespace MultiTemplatesListView
                         Items = items
                     };
                 }
-                Debug.Assert(card != null);
+                if (card == null)
+                {
+
+                }
                 Source.Add(card);
             }
         }
