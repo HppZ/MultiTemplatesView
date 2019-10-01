@@ -120,9 +120,13 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="CardItem.cs" />
+    <Compile Include="CardTemplates.xaml.cs">
+      <DependentUpon>CardTemplates.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model.cs" />
     <Compile Include="MultiTemplatesView.xaml.cs">
       <DependentUpon>MultiTemplatesView.xaml</DependentUpon>
     </Compile>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,9 +26,13 @@ namespace MultiTemplatesListView
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public ObservableCollection<object> Source { get; }
+
         public MainPage()
         {
             this.InitializeComponent();
+
+            Source = new ObservableCollection<object>();
             Loaded += MainPage_Loaded;
         }
 

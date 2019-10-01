@@ -9,10 +9,15 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
-        <local:TemplateSelector1 x:Key="TemplateSelector1"></local:TemplateSelector1>
+        <ResourceDictionary>
+            <local:TemplateSelector1 x:Key="TemplateSelector1"
+            ></local:TemplateSelector1>
+        </ResourceDictionary>
+
+      
     </Page.Resources>
 
     <Grid>
-        <!--<local:MultiTemplatesView Source="" DataTemplateSelector="{StaticResource TemplateSelector1}"></local:MultiTemplatesView>-->
+        <local:MultiTemplatesView Source="{x:Bind Source}" DataTemplateSelector="{StaticResource TemplateSelector1}"></local:MultiTemplatesView>
     </Grid>
 </Page>

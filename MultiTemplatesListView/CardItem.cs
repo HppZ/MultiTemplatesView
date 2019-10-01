@@ -26,9 +26,15 @@ namespace MultiTemplatesListView
 
         public string Cover
         {
-            get { return (string) GetValue(CoverProperty); }
+            get { return (string)GetValue(CoverProperty); }
             set { SetValue(CoverProperty, value); }
         }
+
+    }
+
+    public class CardItemModel
+    {
+        public string Cover { get; set; }
 
     }
 }

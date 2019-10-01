@@ -11,6 +11,12 @@
 
     <Grid>
         <ListView ItemsSource="{x:Bind Source}" ItemTemplateSelector="{x:Bind DataTemplateSelector}">
+            <ListView.Header>
+                <Grid Height="100" Background="Aqua"></Grid>
+            </ListView.Header>
+            <ListView.Footer>
+                <Grid Height="100" Background="Aqua"></Grid>
+            </ListView.Footer>
         </ListView>
     </Grid>
 </UserControl>
